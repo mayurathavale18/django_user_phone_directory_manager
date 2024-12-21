@@ -4,6 +4,7 @@ from django.db import models
 class CustomUser(AbstractUser):
     name = models.CharField(max_length=20, blank=True)
     phone_number = models.CharField(max_length=15, unique=True)
+    email = models.EmailField(blank=True, null=True)  # Add this if missing
     contacts = models.ManyToManyField('self', blank=True)
 
     groups = models.ManyToManyField(
