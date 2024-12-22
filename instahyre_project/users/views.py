@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import get_user_model
 
 class RegisterUserView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [AllowAny]  # Allow unauthenticated access
 
     def post(self, request):
         serializer = UserRegistrationSerializer(data=request.data)
@@ -24,7 +24,7 @@ class RegisterUserView(APIView):
     
 
 class LoginView(APIView):
-    permission_classes = [AllowAny]  # No Allow unauthenticated access
+    permission_classes = [AllowAny]  # Allow unauthenticated access
 
     def post(self, request):
         print(request)
